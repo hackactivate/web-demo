@@ -1,16 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Sabong Simulator</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Virtual Cockfight Simulator</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        button { padding: 10px 20px; font-size: 16px; margin: 10px; }
+        #result { font-size: 20px; margin-top: 20px; }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Virtual Sabong Simulator</h1>
-        <div class="arena">
-            <div class="rooster" id="rooster1">🐓 Rooster 1</div>
-            <div class="rooster" id="rooster2">🐓 Rooster 2</div>
-        </div>
-        <button id="fightBtn">Start Fight!</button>
+    <h1>Virtual Cockfight Simulator</h1>
+    <p>Click a button to see which cock wins!</p>
+    <button onclick="fight('Red')">Red Cock</button>
+    <button onclick="fight('Blue')">Blue Cock</button>
+    <div id="result"></div>
+
+    <script>
+        function fight(selected) {
+            const cocks = ['Red', 'Blue'];
+            const winner = cocks[Math.floor(Math.random() * cocks.length)];
+            if(selected === winner){
+                document.getElementById('result').innerText = `You chose ${selected}. ${winner} wins! You guessed correctly!`;
+            } else {
+                document.getElementById('result').innerText = `You chose ${selected}. ${winner} wins! Better luck next time.`;
+            }
+        }
+    </script>
+</body>
+</html>
